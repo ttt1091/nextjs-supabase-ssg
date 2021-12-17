@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.wrap{
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.mainTtl{
+  margin: .5rem 0 .25rem 0;
+  font-size: 1.2rem;
+  padding: .5rem;
+  background-color: #eefefe;
+  border-left: solid .5rem skyblue;
+}

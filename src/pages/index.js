@@ -14,49 +14,9 @@ export default function Home() {
     })
   }, [])
 
-
-  useEffect(() => {
-    getPosts()
-  }, [])
-
-
-  const [loading, setLoading] = useState(true)
-  const [title, setTitle] = useState(['test','aaa'])
-  const [body, setBody] = useState([null])
-  async function getPosts() {
-    try {
-      setLoading(true)
-
-      let { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        // .eq('id')
-
-      if (error && status !== 406) {
-        throw error
-      }
-
-      if (data) {
-        setTitle(data.title)
-        setBody(data.body)
-      }
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  console.log(title)
-  
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
+    <div>
       {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
-      {title.map((titles) => (
-        <div key={titles}>
-          { title }
-        </div>
-      ))}
     </div>
   )
-}
+} 

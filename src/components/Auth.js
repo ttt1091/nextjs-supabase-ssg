@@ -19,15 +19,15 @@ export default function Auth() {
   }
 
   return (
-    <div className="row flex flex-center">
-      <div className="col-6 form-widget">
-        <h1 className="header">Supabase + Next.js</h1>
-        <p className="description">Sign in via magic link with your email below</p>
+    <div className="wrap">
+      <div className="main">
+        <h1 className="mainTtl">簡単会員登録</h1>
+        <p className="">記入されたメールアドレスへログインのリンクが記載されたメールが届きます。</p>
         <div>
           <input
             className="inputField"
             type="email"
-            placeholder="Your email"
+            placeholder="メールアドレス"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -41,7 +41,7 @@ export default function Auth() {
             className="button block"
             disabled={loading}
           >
-            <span>{loading ? 'Loading' : 'Send magic link'}</span>
+            <span>{loading ? 'Loading' : 'アドレス確定'}</span>
           </button>
         </div>
       </div>
