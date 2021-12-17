@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { getProducts, sendPosts } from '../../libs/product'
+// import { getProducts, sendPosts } from '../../libs/product'
+import { getProducts } from '../../libs/product'
 
 type Props = {
   products: any[];
