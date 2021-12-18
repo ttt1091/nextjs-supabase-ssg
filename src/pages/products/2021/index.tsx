@@ -1,20 +1,16 @@
 import { FC } from 'react'
 // import { getProducts, sendPosts } from '../../libs/product'
-import { getProducts } from '../../libs/product'
+import { getCalendar } from '../../../libs/2021/calendar'
 import {
   Table,
-  Thead,
   Tbody,
-  Tfoot,
   Tr,
-  Th,
   Td,
-  TableCaption,
   Box,
   Button,
   Code,
 } from '@chakra-ui/react'
-import Date from '../../components/Date'
+import Date from '../../../components/Date'
 import Link from 'next/link'
 
 type Props = {
@@ -25,9 +21,9 @@ const Products: FC<Props> = ({ products }) => {
   return (
     <div>
       <Box>
-        <Link href={`/products/2021`}>
+        <Link href={`/products`}>
           <a>
-            <Button colorScheme='teal'  size='md'>2021</Button>
+            <Button colorScheme='teal'  size='md'>ALL</Button>
           </a>
         </Link>
       </Box>
@@ -57,8 +53,7 @@ const Products: FC<Props> = ({ products }) => {
 }
 
 export async function getStaticProps() {
-  const products = await getProducts();
-  // sendPosts() ここを外すとDB登録が出来る
+  const products = await getCalendar();
   return {
     props: {
       products,
