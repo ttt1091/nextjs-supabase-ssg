@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Auth from '../components/Auth'
 import Account from '../components/Account'
+import Link from 'next/link'
+
 
 export default function Home() {
   const [session, setSession] = useState(null)
@@ -15,8 +17,15 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
-      {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
-    </div>
+    <>
+      <div>
+        {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
+      </div>
+      <div>
+        <Link href="/products">
+          <a>PRODUCTS</a>
+        </Link>
+      </div>
+    </>
   )
 } 
